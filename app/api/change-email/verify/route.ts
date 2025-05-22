@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
     await sendMail({
       to: ChangeProrile?.newEmail,
       subject: "Подтверждение почты",
-      text: `Ваш код подтверждения: ${process.env.CLIENT_API}/api/approve-email/verify?code=${code}`,
+      text: `Your verification link: ${process.env.CLIENT_API}/api/approve-email/verify?code=${code}`,
     });
 
     return NextResponse.redirect(new URL("/profile", req.url));

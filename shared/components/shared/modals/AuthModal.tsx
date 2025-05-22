@@ -86,7 +86,7 @@ export const AuthModal: React.FC<Props> = ({
               className="h-12"
               variant={"secondary"}
             >
-              {type !== "login" ? "Войти" : "Регистрация"}
+              {type !== "login" ? "Login" : "Sign Up"}
             </Button>
           </div>
         )}

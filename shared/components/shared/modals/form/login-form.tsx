@@ -35,14 +35,14 @@ export const LoginForm: React.FC<Props> = ({ onClose }) => {
         throw Error();
       }
 
-      toast.success("Вы успешно вошли в аккаунт", {
+      toast.success("You have successfully logged in", {
         icon: "✅",
       });
 
       onClose?.();
     } catch (error) {
       console.error("Error [LOGIN]", error);
-      toast.error("Не удалось войти в аккаунт", {
+      toast.error("Email or password is incorrect", {
         icon: "❌",
       });
     } finally {
@@ -58,9 +58,9 @@ export const LoginForm: React.FC<Props> = ({ onClose }) => {
       >
         <div className="flex justify-between items-center">
           <div className="mr-2">
-            <p className="font-bold text-xl">Вход в аккаунт</p>
+            <p className="font-bold text-xl">Sign in</p>
             <p className="text-gray-400">
-              Введите свою почту, чтобы войти в свой аккаунт
+              Enter you email and password to sign in
             </p>
           </div>
           <img
@@ -72,10 +72,10 @@ export const LoginForm: React.FC<Props> = ({ onClose }) => {
         </div>
 
         <FormInput name="email" label="E-Mail" required />
-        <FormInput name="password" label="Пароль" type="password" required />
+        <FormInput name="password" label="Password" type="password" required />
 
         <Button disabled={loading} className="h-12 text-base" type="submit">
-          Войти
+          Sign in
         </Button>
       </form>
     </FormProvider>

@@ -5,7 +5,6 @@ import { prisma } from "@/prisma/prisma-clietn";
 import { getAppointmentByToken } from "@/shared/lib/getAppointmentByToken";
 import { hashSync } from "bcrypt";
 import { cookies } from "next/headers";
-import { Api } from "@/shared/services/api-client";
 
 export async function registerUser(body: any) {
   try {
@@ -17,10 +16,10 @@ export async function registerUser(body: any) {
 
     if (user) {
       if (!user.verified) {
-        throw new Error("Почта не подтверждена");
+        throw new Error("mail not verified");
       }
 
-      throw new Error("Пользователь уже существует");
+      throw new Error("user already exists");
     }
 
     const createdUser = await prisma.user.create({
