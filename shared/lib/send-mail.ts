@@ -5,7 +5,7 @@ interface Data {
 }
 
 export async function sendMail(details: Data) {
-  await fetch("http://localhost:3000/api/mail", {
+  await fetch(`${process.env.CLIENT_API}/api/mail`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

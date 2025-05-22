@@ -8,8 +8,25 @@ import carParts from "@/public/assets/images/car-parts.png";
 import Image from "next/image";
 import { Button } from "@/shared/components/ui/button";
 import { Star } from "lucide-react";
+import {
+  Wrench,
+  ShieldCheck,
+  Clock3,
+  PhoneCall,
+  MapPin,
+  Leaf,
+} from "lucide-react";
 
 export default async function Home() {
+  const features = [
+    { icon: Wrench, title: "Certified Technicians" },
+    { icon: ShieldCheck, title: "Warranty on Repairs" },
+    { icon: Clock3, title: "Fast Turnaround" },
+    { icon: PhoneCall, title: "24/7 Support" },
+    { icon: MapPin, title: "1600+ US Locations" },
+    { icon: Leaf, title: "Eco-Friendly Materials" },
+  ];
+
   const images = [
     "https://t4.ftcdn.net/jpg/05/21/93/17/360_F_521931702_TXOHZBa3tLVISome894Zc061ceab4Txm.jpg",
     "https://thumbs.dreamstime.com/b/worker-uniform-disassembles-vehicle-engine-car-service-station-automobile-checking-inspection-professional-diagnostics-173424972.jpg",
@@ -40,8 +57,22 @@ export default async function Home() {
         </div>
         <div className="flex justify-between p-6 gap-12 items-start">
           <div className="w-0 grow">
-            <h2 className="text-5xl font-bold">How it works</h2>
-            <AccordionInfo />
+            <section className="py-12">
+              <h2 className="text-3xl font-bold mb-6 text-center">
+                Why Choose Us?
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {features.map(({ icon: Icon, title }) => (
+                  <div
+                    key={title}
+                    className="flex items-center gap-4 p-4 bg-muted/10 rounded-xl shadow-sm hover:shadow-md transition"
+                  >
+                    <Icon className="w-6 h-6 text-primary" />
+                    <span className="font-medium">{title}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
           <div className="w-0 grow">
             <p className="text-2xl font-light">About</p>
@@ -88,7 +119,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <GetInLineSection className="w-full" />
+        <GetInLineSection className="w-full mt-24" />
       </Container>
     </div>
   );

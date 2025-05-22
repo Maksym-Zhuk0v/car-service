@@ -41,7 +41,7 @@ export async function registerUser(body: any) {
 
     await sendMail({
       to: createdUser.email,
-      text: `Here is your verification code: ${code} or just click the link to confirm http://localhost:3000/api/auth/verify?code=${code}`,
+      text: `Here is your verification code: ${code} or just click the link to confirm ${process.env.CLIENT_API}/api/auth/verify?code=${code}`,
       subject: "Подтверждение почты",
     });
 

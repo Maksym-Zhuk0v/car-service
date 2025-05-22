@@ -9,6 +9,8 @@ type Data = {
 export async function POST(req: NextRequest, res: NextApiResponse<Data>) {
   const body = await req.json();
 
+  const clientApi = process.env.CLIENT_API;
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
@@ -21,7 +23,7 @@ export async function POST(req: NextRequest, res: NextApiResponse<Data>) {
 
   try {
     const info = await transporter.sendMail({
-      from: '"Your Name" <donotreply@begege.com>',
+      from: `Car service <donotreply@begege.com>`,
       to: body.to,
       subject: body.subject,
       text: body.text,

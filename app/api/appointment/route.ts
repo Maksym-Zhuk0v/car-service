@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       await sendMail({
         to: body.email,
         text:
-          "Here is your verification code: http://localhost:3000/api/appointment/verify?code=" +
+          `Here is your verification code: ${process.env.CLIENT_API}/api/appointment/verify?code=` +
           code,
         subject: "Approve appointment",
       });
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
       await sendMail({
         to: body.email,
         text:
-          "Here is your verification code: http://localhost:3000/api/appointment/verify?code=" +
+          `Here is your verification code: ${process.env.CLIENT_API}/api/appointment/verify?code=` +
           code,
         subject: "Approve appointment",
       });

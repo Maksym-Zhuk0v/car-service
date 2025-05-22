@@ -37,7 +37,7 @@ export async function changeEmail(body: any) {
 
     await sendMail({
       to: user.email,
-      text: `Here is your verification code: http://localhost:3000/api/change-email/verify?code=${code}`,
+      text: `Here is your verification code: ${process.env.CLIENT_API}/api/change-email/verify?code=${code}`,
       subject: "Approve email change",
     });
   } catch (err) {
